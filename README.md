@@ -1,1 +1,1 @@
-# calculator_1bit_with_buttons_and_lcd
+# 1-bit adder with switches and lcd
