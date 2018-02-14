@@ -10,7 +10,7 @@
 
 LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
 
-int state[4] = {0, 0, 0, 0};
+int result[4] = {0, 0, 0, 0};
 int x[3] = {0, 0, 0};
 int y[3] = {0, 0, 0};
 int c_in;
@@ -49,7 +49,7 @@ void loop() {
   
   for (int i = 0; i < 4; i++)
   {
-    state[i] = digitalRead(i + 16);  
+    result[i] = digitalRead(i + 16);  
   }
 
   lcd.print(c_in);
@@ -73,7 +73,7 @@ void loop() {
   
   for (int i = 0; i < 4; i++)
   {
-    lcd.print(state[i]);  
+    lcd.print(result[i]);  
   }
   
   delay(20);
