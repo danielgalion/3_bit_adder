@@ -1,10 +1,14 @@
 #define C_IN 6
-#define X_0 9
 #define Y_0 15
-#define X_1 8
 #define Y_1 14
-#define X_2 7
 #define Y_2 13
+#define X_0 9
+#define X_1 8
+#define X_2 7
+#define V_0 19
+#define V_1 18
+#define V_2 17
+#define V_3 16
 
 #include <LiquidCrystal.h>
 
@@ -18,12 +22,7 @@ int c_in;
 void setup() {
   // put your setup code here, to run once:
   lcd.begin(16, 2);
-
-  pinMode(16, INPUT_PULLUP);
-  pinMode(17, INPUT_PULLUP);
-  pinMode(18, INPUT_PULLUP);
-  pinMode(19, INPUT_PULLUP);
-
+  
   pinMode(C_IN, INPUT_PULLUP);
   pinMode(X_0, INPUT_PULLUP);
   pinMode(Y_0, INPUT_PULLUP);
@@ -32,11 +31,14 @@ void setup() {
   pinMode(X_2, INPUT_PULLUP);
   pinMode(Y_2, INPUT_PULLUP);
   
+  pinMode(V_0, INPUT_PULLUP);
+  pinMode(V_1, INPUT_PULLUP);
+  pinMode(V_2, INPUT_PULLUP);
+  pinMode(V_3, INPUT_PULLUP);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  //lcd.print("Hello world!");
   c_in = digitalRead(C_IN);
   
   x[0] = digitalRead(X_0);
@@ -47,10 +49,10 @@ void loop() {
   y[1] = digitalRead(Y_1);
   y[2] = digitalRead(Y_2);
   
-  for (int i = 0; i < 4; i++)
-  {
-    result[i] = digitalRead(i + 16);  
-  }
+  result[0] = digitalRead(V_0);
+  result[1] = digitalRead(V_1);
+  result[2] = digitalRead(V_2);
+  result[3] = digitalRead(V_3);
 
   lcd.print(c_in);
 
@@ -71,9 +73,9 @@ void loop() {
   lcd.print(" =");
   lcd.setCursor(12, 1); //column, row
   
-  for (int i = 0; i < 4; i++)
+  for (int i = 3; i >= 0; i--)
   {
-    lcd.print(result[i]);  
+    lcd.print(result[i]);
   }
   
   delay(20);
