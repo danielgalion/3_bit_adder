@@ -4,3 +4,4 @@
 * ### Fritzing schema with all views and PCB
 * ### Videos of working adder
 * ### Photo of whole adder
+* ### ReadMe file in Polish - Opis.pdf
